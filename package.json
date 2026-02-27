@@ -1,0 +1,44 @@
+{
+  "name": "claude-onboard",
+  "version": "1.0.0",
+  "description": "AI-powered repo onboarding for new devs — instant architecture guides from any codebase",
+  "type": "module",
+  "bin": {
+    "claude-onboard": "./bin/onboard.js"
+  },
+  "main": "./src/index.js",
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/onboard.js",
+    "test": "node --test src/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "claude",
+    "ai",
+    "onboarding",
+    "developer-tools",
+    "architecture",
+    "documentation",
+    "anthropic"
+  ],
+  "author": "NickCirv",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickCirv/claude-onboard.git"
+  },
+  "homepage": "https://github.com/NickCirv/claude-onboard#readme"
+}
