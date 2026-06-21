@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "start": "node bin/onboard.js",
-    "test": "node --test src/*.test.js"
+    "test": "node --test"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
@@ -23,7 +23,7 @@
     "commander": "^12.1.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20"
   },
   "keywords": [
     "claude",
