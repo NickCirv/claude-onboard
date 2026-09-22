@@ -1,55 +1,71 @@
-<div align="center">
+![Nicholas Ashkar — claude-onboard](assets/nicholas-ashkar/banner.png)
 
 # claude-onboard
 
-**Point at any codebase, get an instant architecture guide powered by Claude**
+Builds an onboarding guide by sending selected repository structure and files to Claude.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?labelColor=0B0A09)](LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen?labelColor=0B0A09)](https://nodejs.org)
 
-</div>
 
-## Install
 
-Requires `ANTHROPIC_API_KEY`.
 
-```bash
-npx github:NickCirv/claude-onboard
-```
 
-## Usage
+<a id="usage"></a>
 
-```bash
-# Analyze current directory
-npx github:NickCirv/claude-onboard
+<a id="analyze-current-directory"></a>
 
-# Analyze a local path
-npx github:NickCirv/claude-onboard ./my-project
+<a id="analyze-a-local-path"></a>
 
-# Clone + analyze a remote repo
-npx github:NickCirv/claude-onboard https://github.com/user/repo
+<a id="clone--analyze-a-remote-repo"></a>
 
-# Save guide to markdown file
-npx github:NickCirv/claude-onboard --output guide.md
-```
-
-| Flag | Description |
-|---|---|
-| `[target]` | Directory path or GitHub URL (default: `.`) |
-| `-o, --output <file>` | Save guide to a markdown file |
-| `-v, --verbose` | Show token counts and verbose output |
+<a id="save-guide-to-markdown-file"></a>
 
 ## What it does
 
-Scans a repo (up to 4 levels deep), reads key files and dependency manifests, then sends a structured summary — not full file contents — to `claude-sonnet-4-6`. Typical input is 2,000–4,000 tokens. Returns a guide covering architecture, tech stack, key files, getting-started commands, common tasks, and gotchas.
+- Directory or GitHub URL input.
+- Stack/entry-point detection.
+- Terminal presentation.
+- Optional Markdown output.
 
-Detects JS/TS, Python, Go, Rust, Ruby, Java/Kotlin, PHP stacks plus common tooling (Prisma, Tailwind, Docker, GitHub Actions, Vercel, etc.).
 
-## Setup
 
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
+<a id="install"></a>
+
+<a id="setup"></a>
+
+## Quickstart
+
+Prerequisites: Node.js `>=20` and npm; Git is also used by the implementation. The checkout below pins the source used for this documentation.
+
+```sh
+git clone https://github.com/NickCirv/claude-onboard.git
+cd claude-onboard
+git checkout 9d33f1639bc9c4ef81698d7a073c70307bfc7eb0
+npm install
+node bin/onboard.js .
 ```
 
----
-<sub>Node >=18 · MIT · by <a href="https://github.com/NickCirv">NickCirv</a></sub>
+**Expected behavior (illustrative, not captured):** With ANTHROPIC_API_KEY set, returns a generated guide for the local project.
+
+Examples are source-inspected, **not runtime-tested**. See the research record for verification gaps.
+
+## Boundaries and data
+
+Selected source leaves the machine for Anthropic. Scanning and file selection are bounded; generated architecture explanations can be incomplete. Repository URLs are cloned locally.
+
+## Development
+
+The manifest defines `npm test` as:
+
+```sh
+node --test
+```
+
+The captured suite is a smoke check, not end-to-end behavior coverage. Examples include “entry is valid JavaScript”, “--help exits 0”. Tests were not run for this documentation revision.
+
+See [implementation and command reference](docs/REFERENCE.md) for the package scripts and inspected interfaces, and [research record](docs/RESEARCH.md) for the pinned source, document decisions and unresolved checks.
+
+## License and contact
+
+See [LICENSE](LICENSE) for the original terms and attribution. Legal text is unchanged.
+
+[Nicholas Ashkar](https://nicholashkar.com/) · [Discuss a project](https://nicholashkar.com/#oxblood-contact)
